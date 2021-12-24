@@ -99,12 +99,12 @@ async def stop_cmd(_, message):
         await music.pytgcalls.leave_group_call(chat_id)
     except:
         pass   
-    await message.reply_text("Deleting Databases, Queues, Logs, Raw Files, Downloads.")
+    await message.reply_text("Delete Databases, Queues, Logs, Raw Files, Downloads.")
     
 @app.on_message(filters.command(["pause", f"pause@{BOT_USERNAME}", "ps"]))
-async def pause_cmd(_, message):
+async def pause_cmd(_, message): 
     if message.sender_chat:
-        return await message.reply_text("You are __Admin Anonymous__!\nReturn to User Account.")
+        return await message.reply_text("You are __Admin Anonymous__!\nReturn to User Account.") 
     permission = "can_manage_voice_chats"
     m = await adminsOnly(permission, message)
     if m == 1:
@@ -112,17 +112,17 @@ async def pause_cmd(_, message):
     checking = message.from_user.mention
     chat_id = message.chat.id
     if not await is_active_chat(chat_id):
-        return await message.reply_text("I don't think if something is playing in voice chat")
+        return await message.reply_text("I don't think if something is playing in the voice chat")
     elif not await is_music_playing(message.chat.id):
-        return await message.reply_text("I don't think if something is playing in voice chat")
+        return await message.reply_text("I don't think if something is playing in the voice chat")   
     await music_off(chat_id)
     await music.pytgcalls.pause_stream(chat_id)
     await message.reply_text(f"🎧 Voice Chat Paused by {checking}!")
     
 @app.on_message(filters.command(["resume", f"resume@{BOT_USERNAME}", "rs"]))
-async def stop_cmd(_, message):
+async def stop_cmd(_, message): 
     if message.sender_chat:
-        return await message.reply_text("You are __Admin Anonymous__!\nReturn to User Account.")
+        return await message.reply_text("You are __Admin Anonymous__!\nReturn to User Account.") 
     permission = "can_manage_voice_chats"
     m = await adminsOnly(permission, message)
     if m == 1:
@@ -130,18 +130,18 @@ async def stop_cmd(_, message):
     checking = message.from_user.mention
     chat_id = message.chat.id
     if not await is_active_chat(chat_id):
-        return await message.reply_text("I don't think if something is playing in voice chat")
+        return await message.reply_text("I don't think if something is playing in the voice chat")
     elif await is_music_playing(chat_id):
-        return await message.reply_text("I don't think if something is playing in voice chat")
+        return await message.reply_text("I don't think if something is playing in the voice chat") 
     else:
         await music_on(chat_id)
         await music.pytgcalls.resume_stream(chat_id)
         await message.reply_text(f"**🎧 Voice Chat Continued By {checking}!**")
 
-@app.on_message(filters.command(["end", f"end@{BOT_USERNAME}", "e"])))
-async def stop_cmd(_, message):
-     if message.sender_chat:
-         return await message.reply_text("You are __Admin Anonymous__!\nReturn to User Account.")
+@app.on_message(filters.command(["end", f"end@{BOT_USERNAME}", "e"]))
+async def stop_cmd(_, message): 
+    if message.sender_chat:
+        return await message.reply_text("You are __Admin Anonymous__!\nReturn to User Account.") 
     permission = "can_manage_voice_chats"
     m = await adminsOnly(permission, message)
     if m == 1:
@@ -192,7 +192,7 @@ async def stop_cmd(_, message):
                     with yt_dlp.YoutubeDL(ytdl_opts) as ytdl:
                         x = ytdl.extract_info(url, download=False)
                 except Exception as e:
-                    return await mystic.edit(f"Gagal mengunduh video ini.\n\n**Alasan**:{e}") 
+                    return await mystic.edit(f"Failed to download this video.\n\n**Reason**:{e}") 
                 title = (x["title"])
                 videoid = afk
                 def my_hook(d):
@@ -260,7 +260,6 @@ async def stop_cmd(_, message):
                     caption=(
                         f"""
 <b>⏭️ Skip the song</b>
-
 <b>🏷 Name:</b>[{title[:25]}]({url})
 <b>⏱️ Duration:</b> {duration}
 <b>🎧 Upon request:</b> {semx.mention}
@@ -297,7 +296,6 @@ async def stop_cmd(_, message):
                     reply_markup=InlineKeyboardMarkup(buttons),
                     caption=f"""
 <b>⏭️ Skip the song</b>
-
 <b>🏷️ Name:</b> {title}
 <b>⏱️ Duration:</b> {duration}
 <b>🎧 Upon request</b> {username}
