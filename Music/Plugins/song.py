@@ -30,8 +30,8 @@ async def mpthree(_, message: Message):
     if message.sender_chat:
         return await message.reply_text(
             """
-Anda adalah Admin Anonim!
-Kembalikan ke Akun Pengguna Dari Hak Admin.
+You are an Anonymous Admin!
+Revert to User Account From Admin Rights.
 """
         )
     user_id = message.from_user.id
@@ -69,9 +69,9 @@ Kembalikan ke Akun Pengguna Dari Hak Admin.
         buttons = gets(videoid, user_id)
         m = await message.reply_text(
             f"""
-<b>🏷️ Judul:</b> [{title[:25]}]({url})
+<b>🏷️ Title:</b> [{title[:25]}]({url})
 <b>💡</b> [More Information](https://t.me/{BOT_USERNAME}?start=info_{id})
-<b>⚡ Didukung</b> [{BOT_NAME}](t.me/{BOT_USERNAME})
+<b>⚡ Supported</b> [{BOT_NAME}](t.me/{BOT_USERNAME})
 """,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
@@ -80,13 +80,13 @@ Kembalikan ke Akun Pengguna Dari Hak Admin.
         if len(message.command) < 2:
             await message.reply_text(
                 """
-**Penggunaan:**
+**Use:**
 
-/song atau /vsong [Judul Lagu Atau Youtube Link] - untuk mendownload lagu dan video
+/song or /vsong [Song Title Or Youtube Link] - to download songs and videos
 """
             )
         query = message.text.split(None, 1)[1]
-        mystic = await message.reply_text("**🔎 Pencarian**")
+        mystic = await message.reply_text("**🔎**")
         try:
             a = VideosSearch(query, limit=5)
             result = (a.result()).get("result")
@@ -126,28 +126,28 @@ Kembalikan ke Akun Pengguna Dari Hak Admin.
         )
         hmo = await message.reply_text(
             f"""
-<b>✨ Silahkan Pilih Mana Yang Ingin Didownload</b>
+<b>✨ Please choose which one you want to download</b>
 
 
 ¹ <b>{title1[:20]}</b>
 ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID1})
-└ ⚡ **Didukung:** [{BOT_NAME}](t.me/{BOT_USERNAME})
+└ ⚡ **Supported:** [{BOT_NAME}](t.me/{BOT_USERNAME})
 
 ² <b>{title2[:20]}</b>
 ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID2})
-└ ⚡ **Didukung:** [{BOT_NAME}](t.me/{BOT_USERNAME})
+└ ⚡ **Supported:** [{BOT_NAME}](t.me/{BOT_USERNAME})
 
 ³ <b>{title3[:20]}</b>
 ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID3})
-└ ⚡ **Didukung:** [{BOT_NAME}](t.me/{BOT_USERNAME})
+└ ⚡ **Supported:** [{BOT_NAME}](t.me/{BOT_USERNAME})
 
 ⁴ <b>{title4[:20]}</b>
 ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID4})
-└ ⚡ **Didukung:** [{BOT_NAME}](t.me/{BOT_USERNAME})
+└ ⚡ **Supported:** [{BOT_NAME}](t.me/{BOT_USERNAME})
 
 ⁵ <b>{title5[:20]}</b>
 ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID5})
-└ ⚡ **Didukung:** [{BOT_NAME}](t.me/{BOT_USERNAME})
+└ ⚡ **Supported:** [{BOT_NAME}](t.me/{BOT_USERNAME})
 """,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
@@ -205,9 +205,9 @@ async def startyuplay(_, CallbackQuery):
         photo=thumb,
         reply_markup=InlineKeyboardMarkup(buttons),
         caption=f"""
-<b>🏷️ Judul:</b> [{title[:25]}]({url})
+<b>🏷️ Title:</b> [{title[:25]}]({url})
 ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{id})
-└ ⚡ **Didukung:** [{BOT_NAME}](t.me/{BOT_USERNAME})
+└ ⚡ **Supported:** [{BOT_NAME}](t.me/{BOT_USERNAME})
 """,
     )
     os.remove(thumb)
@@ -286,28 +286,28 @@ async def chonga(_, CallbackQuery):
         )
         await CallbackQuery.edit_message_text(
             f"""
-<b>✨ Silahkan Pilih Mana Yang Ingin Didownload</b>
+<b>✨ Please choose which one you want to download</b>
 
 
 ⁶ <b>{title6[:20]}</b>
 ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID6})
-└ ⚡ **Didukung:** [{BOT_NAME}](t.me/{BOT_USERNAME})
+└ ⚡ **Supported:** [{BOT_NAME}](t.me/{BOT_USERNAME})
 
 ⁷ <b>{title7[:20]}</b>
 ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID7})
-└ ⚡ **Didukung:** [{BOT_NAME}](t.me/{BOT_USERNAME})
+└ ⚡ **Supported:** [{BOT_NAME}](t.me/{BOT_USERNAME})
 
 ⁸ <b>{title8[:20]}</b>
 ├ 💡 [Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{ID8})
-└ ⚡ **Didukung:** [{BOT_NAME}](t.me/{BOT_USERNAME})
+└ ⚡ **Supported:** [{BOT_NAME}](t.me/{BOT_USERNAME})
 
 ⁹ <b>{title9[:20]}</b>
 ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID9})
-└ ⚡ **Didukung:** [{BOT_NAME}](t.me/{BOT_USERNAME})
+└ ⚡ **Supported:** [{BOT_NAME}](t.me/{BOT_USERNAME})
 
 ¹⁰ <b>{title10[:20]}</b>
 ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID10})
-└ ⚡ **Didukung:** [{BOT_NAME}](t.me/{BOT_USERNAME})
+└ ⚡ **Supported:** [{BOT_NAME}](t.me/{BOT_USERNAME})
 """,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
@@ -329,28 +329,28 @@ async def chonga(_, CallbackQuery):
         )
         await CallbackQuery.edit_message_text(
             f"""
-<b>✨ Silahkan Pilih Mana Yang Ingin Didownload</b>
+<b>✨ Please choose which one you want to download</b>
 
 
 ¹ <b>{title1[:20]}</b>
 ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID1})
-└ ⚡ **Didukung:** [{BOT_NAME}](t.me/{BOT_USERNAME})
+└ ⚡ **Supported:** [{BOT_NAME}](t.me/{BOT_USERNAME})
 
 ² <b>{title2[:20]}</b>
 ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID2})
-└ ⚡ **Didukung:** [{BOT_NAME}](t.me/{BOT_USERNAME})
+└ ⚡ **Supported:** [{BOT_NAME}](t.me/{BOT_USERNAME})
 
 ³ <b>{title3[:20]}</b>
 ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID3})
-└ ⚡ **Didukung:** [{BOT_NAME}](t.me/{BOT_USERNAME})
+└ ⚡ **Supported:** [{BOT_NAME}](t.me/{BOT_USERNAME})
 
 ⁴ <b>{title4[:20]}</b>
 ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID4})
-└ ⚡ **Didukung:** [{BOT_NAME}](t.me/{BOT_USERNAME})
+└ ⚡ **Supported:** [{BOT_NAME}](t.me/{BOT_USERNAME})
 
 ⁵ <b>{title5[:20]}</b>
 ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID5})
-└ ⚡ **Didukung:** [{BOT_NAME}](t.me/{BOT_USERNAME})
+└ ⚡ **Supported:** [{BOT_NAME}](t.me/{BOT_USERNAME})
 """,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
